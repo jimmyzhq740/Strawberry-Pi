@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Raspberry</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,400,500,700,900"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="header" v-cloak>
+        <div class="logo">Raspberry Pi</div>
+        <div class="nav">
+          <div @click="view = 'devices'" class="nav-item">Devices</div>
+          <div @click="view = 'photos'" class="nav-item">Photos</div>
+        </div>
+      </div>
+      <div class="content" v-cloak>
+        <div class="devices" v-if="view == 'devices'">
+          <button
+            class="ui red button"
+            :class="{loading: loadingDevices}"
+            @click="reloadDevices"
+          >
+            <i class="redo icon"></i> Refresh
+          </button>
+          <button @click="rebootDevices" class="ui blue button">
+            <i class="bomb icon"></i> Reboot
+          </button>
+          {% raw %}
+          <a class="ui black circular label"> {{ pis.length }} </a>
+          {% endraw %}
+
+          <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>IP</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% raw %}
+              <tr v-for="pi in pis">
+                <td data-label="Name">{{ pi.name }}</td>
+                <td data-label="IP">
+                  {{ pi.ip }}
+                  <button
+                    @click="cpip('ssh pi@' + pi.ip)"
+                    class="circular ui icon button mini orange"
+                  >
+                    <i class="icon copy"></i>
+                  </button>
+                </td>
+                <td>
+                  <!--Use viewPi function in .js-->
+                  <button @click="viewPi(pi)" class="ui icon button">
+                    View
+                  </button>
+                  <button @click="rebootDevice(pi)" class="ui icon button">
+                    Reboot
+                  </button>
+                </td>
+              </tr>
+              {% endraw %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="viewer" v-if="view == 'view'">
+          <!-- Video stream section -->
+          <div>
+            <button class="ui icon green button" @click="view = 'devices'">
+              <i class="angle left icon"></i>
+            </button>
+            <button @click="startVideoStream">Show Video Stream</button>
+            <button @click="stopCamera">Stop Video Stream</button>
+          </div>
+
+          <!-- Video stream section -->
+          <div v-if="showVideo">
+            <img
+              :src="videoFeedUrl"
+              :key="videoFeedKey"
+              alt="Live Video Feed"
+            />
+          </div>
+
+          <div>
+            <button @click="increaseLens">Increase Lens</button>
+            <button @click="decreaseLens">Decrease lens</button>
+          </div>
+          <div>
+            <button @click="increaseExposureTime">
+              Increase Exposure Time
+            </button>
+            <button @click="decreaseExposureTime">
+              Decrease Exposure Time
+            </button>
+          </div>
+        </div>
+
+        <div class="photos" v-if="view=='photos'">
+          <div><button @click="TakePhotos">Take Photos</button></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
