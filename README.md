@@ -38,9 +38,14 @@ sudo libcamera-jpeg -o test.jpg
 
 ## Usage
 To enable the GUI control:
-- Configure each Pi to run the following script on boot-up:
+- Download the ```piserver``` folder to the Pi. Configure each Pi to run the following script on boot-up:
   ```php
   python server.py --secret SECRET
   ```
   Replace ```SECRET``` with a long unrecognizable string. Make sure this secret is consistent across all PI's and make sure we write it down.
    For instructions on how to execute a script automatically upon system boot, please refer to the provided guide https://www.instructables.com/Raspberry-Pi-Launch-Python-script-on-startup/
+- Download the ```master``` server to your computer/laptop that you would like to host the GUI controller. Make sure your computer / laptop is on the same network as all the Pi devices you wish to remote control. To launch the GUI use the command:
+ ```php
+  python master.py --secret SECRET
+  ```
+Note that the ```SECRET``` here must be the same secret that you used with all the Pi's.
