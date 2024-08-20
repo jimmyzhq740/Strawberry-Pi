@@ -43,3 +43,4 @@ To enable the GUI control:
   python server.py --secret SECRET
   ```
   Replace ```SECRET``` with a long unrecognizable string. Make sure this secret is consistent across all PI's and make sure we write it down.
+  To know how to run a script when the board has been boot up, please see the guide https://www.instructables.com/Raspberry-Pi-Launch-Python-script-on-startup/
