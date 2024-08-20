@@ -22,4 +22,4 @@ this controller employs a Flask-based web-framework to manage remote live video 
 Each Raspberry Pi runs a Flask server that captures and streams video from its connected camera.
 A master Flask server, hosted on a central device, aggregates these streams, providing a web-based GUI for real-time monitoring and adjustment of camera positions.  
 
-<p align="center"> <img src="work flow.png">
+<p align="center"> <img src="Work Overflow.png">
