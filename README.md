@@ -42,4 +42,4 @@ To enable the GUI control:
   ```php
   python server.py --secret SECRET
   ```
-  Replace SECRET with a long unrecognizable string. Make sure this secret is consistent across all PI's and make sure we write it down.
+  Replace ```SECRET``` with a long unrecognizable string. Make sure this secret is consistent across all PI's and make sure we write it down.
