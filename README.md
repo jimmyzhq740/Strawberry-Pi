@@ -45,7 +45,7 @@ To enable the GUI control:
   Replace ```SECRET``` with a long unrecognizable string. Make sure this secret is consistent across all PI's and make sure we write it down.
    For instructions on how to execute a script automatically upon system boot, please refer to the provided guide https://www.instructables.com/Raspberry-Pi-Launch-Python-script-on-startup/
 - Download the ```master``` server to your computer/laptop that you would like to host the GUI controller. Make sure your computer / laptop is on the same network as all the Pi devices you wish to remote control. To launch the GUI use the command:
- ```php
+  ```php
   python master.py --secret SECRET
   ```
   Note that the ```SECRET``` here must be the same secret that you used with all the Pi's.
