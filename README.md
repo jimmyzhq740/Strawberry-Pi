@@ -31,10 +31,13 @@ Once the monitoring has done, you can use the master flask server to control the
 # Usage
 ## Setup
 The project uses two Raspberry Pi Model 4B+ Board, each of which controlling one Raspberry Pi Camera Module 3 Wide. 
-Ensure the cameras are properly connected to the boards and enabled. Test the camera via ```sudo libcamera-jpeg -o test.jpg```
+Ensure the cameras are properly connected to the boards and enabled. Test the camera via 
+```php
+sudo libcamera-jpeg -o test.jpg
 
 ## Usage
 To enable the GUI control:
 - Configure each Pi to run the following script on boot-up:
   ```php
   python server.py --secret SECRET
+  Replace SECRET with a long unrecognizable string. Make sure this secret is consistent across all PI's and make sure we write it down.
