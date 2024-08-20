@@ -48,4 +48,4 @@ To enable the GUI control:
  ```php
   python master.py --secret SECRET
   ```
-Note that the ```SECRET``` here must be the same secret that you used with all the Pi's.
+  Note that the ```SECRET``` here must be the same secret that you used with all the Pi's.
