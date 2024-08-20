@@ -36,7 +36,7 @@ Ensure the cameras are properly connected to the boards and enabled. Test the ca
 sudo libcamera-jpeg -o test.jpg
 ```
 
-## Guide
+## Instruction
 To enable the GUI control:
 - Download the ```piserver``` folder to the Pi. Configure each Pi to run the following script on boot-up:
   ```php
