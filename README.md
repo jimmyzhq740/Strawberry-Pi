@@ -17,9 +17,13 @@ two-second interval between captures.
 with accurate focus and appropriate exposure settings.
 
 # Design Specification
-To overcome the issues, the a GUI based controller is implemented. Adapted from the pishot project, 
-this controller employs a Flask-based web-framework to manage remote live video streams and remote control of photo taken from multiple Raspberry Pi cameras.
+To overcome the issues, a GUI based controller is implemented. Adapted from the [Pishot](https://github.com/revalo/pishot) project, 
+this controller employs a Flask-based web-framework server to manage remote live video streams and remote control of photo taken from multiple Raspberry Pi cameras.
 Each Raspberry Pi runs a Flask server that captures and streams video from its connected camera.
 A master Flask server, hosted on a central device, aggregates these streams, providing a web-based GUI for real-time monitoring and adjustment of camera positions.  
 
 <p align="center"> <img src="Work Overflow.png">
+
+# Usage
+## Setup
+Ensure the raspberry camera are 
