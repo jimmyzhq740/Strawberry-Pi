@@ -36,4 +36,5 @@ Ensure the cameras are properly connected to the boards and enabled. Test the ca
 ## Usage
 To enable the GUI control:
 - Configure each Pi to run the following script on boot-up:
-  ```php python server.py --secret SECRET ```
+  ```php
+  python server.py --secret SECRET
