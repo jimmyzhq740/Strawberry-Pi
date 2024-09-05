@@ -49,3 +49,5 @@ To enable the GUI control:
   python master.py --secret SECRET
   ```
   Note that the ```SECRET``` here must be the same secret that you used with all the Pi's.
+
+The support folder contains the stl files of the joiner and the base for holding the camera. It provides two degress of freedom so that the camera angles of imaging can be adjusted accordingly.
