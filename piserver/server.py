@@ -249,7 +249,7 @@ def video_feed():
 
 @app.route('/start_capture')
 def start_capture():
-    image_paths = capture_and_send_image(10)
+    image_paths = capture_and_send_image(30)
     image_urls = [f"http://{request.host}/images/{os.path.basename(path)}" for path in image_paths]
     return jsonify({"images":image_urls}),200
 
@@ -295,9 +295,3 @@ if __name__ == "__main__":
     ip_thread.start()
 
     app.run(host="0.0.0.0", port=5000)
-
-print (get_ip())
-print (getserial())
-print (get_hw_id())
-print (socket.gethostname())
-print (socket.gethostbyname_ex(socket.gethostname()))
