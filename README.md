@@ -27,6 +27,7 @@ A master Flask server, hosted on a central device, aggregates these streams, pro
 
 Once the monitoring has done, you can use the master flask server to control the raspberry pi flask server to take images from the cameras. Once captured, these images will be saved locally and sent back to the central device.  Since the GUI also offers the directory typing, these images sent back from different pi board will be saved to the directory you typed, streamlining the process of managing and storing photos from the Raspberry Pi cameras.
 
+<p align="center"> <img src="IMG_9504.jpg">
 
 # Usage
 ## Setup
